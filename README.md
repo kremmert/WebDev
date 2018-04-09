@@ -1,2 +1,2 @@
 # WebDev
-# Learning web development
+# Learning web development from Colt Steele's online course
