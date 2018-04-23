@@ -1,0 +1,55 @@
+body {
+	background: blue;
+}
+
+li {
+	border: 2px solid green;
+}
+
+#specialID {
+	color:purple;
+	border: 3px solid red;
+}
+
+.myClass {
+	text-decoration: line-through;
+}
+
+/*  
+	element selector all elements of that type
+    id = unique
+    class = several 
+	* = select everything
+	decendent = ie 
+	ul li a {
+
+	}
+	li .myClass {
+	
+	}
+	all are decendents
+
+	adjacent = 
+	h4 + ul {
+	
+	}
+	do something to ul's that are adjacent to h4
+
+	attribute = 
+	a[href="https://www.google.com"] {
+	
+	}
+	selects all href that go to google
+	input[type="checkbox"] {
+	
+	}
+	selects all checkboxes
+
+	nth of type = selects nth element in group every time
+ 	ul:nth-of-type(3) {
+	
+ 	}
+ 	change every third ul
+
+
+ */
