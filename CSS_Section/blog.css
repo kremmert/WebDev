@@ -1,0 +1,37 @@
+/* 
+   in between posts has line -- hr rule style
+*/
+
+body {
+	margin: 30px auto;
+	border: 20px solid #bdc3c7;
+	width: 50%;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+h2 {
+	color: #2c3e50;
+	font-weight: bold;
+	font-size: 2.0rem;
+}
+
+h3 {
+	color: #3498db;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+}
+
+.post {
+	margin: 2%;
+}
+
+hr {
+	height: 10px;
+	border: 0;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+
+.beginning {
+	border-left: 5px solid #bdc3c7;
+	padding-left: 5px;
+}
