@@ -114,3 +114,72 @@ function forLoops() {
 		}
 	}
 }
+
+function isEven(num) {
+	return num % 2 === 0
+}
+
+function factorial(num) {
+	var result = 1;
+	for(var i = 2; i <= num; i++) {
+		result *= i;
+	}
+	return result;
+}
+
+function kebabToSnake(word) {
+    return word.replace(/-/g, "_");
+}
+
+function todoList() {
+	// list, new, delete, or quit
+	var todos = [];
+	window.setTimeout(function() {
+        // put all of your JS code from the lecture here
+        var input = prompt("What would you like to do?");
+        while(input !== "quit") {
+	        switch(input) {
+	        	case "list":
+	        		todos.forEach(function(elem, i) {console.log(i + ": " + elem)});
+	        		break;
+	        	case "new":
+	        		var newTodo = prompt("Enter new todo");
+	        		todos.push(newTodo);
+	        		break;
+	        	case "delete":
+	        	    var index = prompt("Enter index to delete");
+	        	    todos.splice(index, 1);
+	        	    console.log("Item deleted");
+	        		break;
+	        	default:
+	        		console.log("Enter list, new, delete or quit");
+	        }
+	        input = prompt("What would you like to do?");
+    	}
+    }, 1000);
+}
+
+function arrayReverse(arr) {
+	for(var i = arr.length - 1; i >= 0; i--) {
+		console.log(arr[i]);
+	}
+}
+
+function isUniform(arr) {
+	for(var i = 0; i < arr.length - 1; i++) {
+		if(arr[i] !== arr[i+1]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+/*
+Object
+var dog = {
+	name: "Lucky",
+	breed: doodle
+}
+These mean same thing
+dog.name === dog["name"]
+*/
