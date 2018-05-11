@@ -63,3 +63,10 @@ function changingStyle() {
 	//link.getAttribute("href") get the attr
 	link.setAttribute("href", "https://www.google.com");
 }
+
+function listen() {
+	var button = document.querySelector("button");
+	button.addEventListener("click", function() {
+		document.body.classList.toggle("background-toggle");
+	});
+}
