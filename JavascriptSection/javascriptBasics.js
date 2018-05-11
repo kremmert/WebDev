@@ -183,3 +183,27 @@ var dog = {
 These mean same thing
 dog.name === dog["name"]
 */
+
+function movies() {
+    m1 = movieObject("Avengers", 5, true);
+    m2 = movieObject("Infinity War", 5, true);
+    m3 = movieObject("Airplane", 5, true);
+    m4 = movieObject("The Godfather", 5, false);
+    arr = [m1,m2,m3,m4];
+    for(var i = 0; i < arr.length; i++) {
+    	if(arr[i].hasWatched === true) {
+    		console.log("You have watched \"" + arr[i].title + "\" - " + arr[i].rating + " stars");
+    	}
+    	else {
+    		console.log("You have not watched \"" + arr[i].title + "\" - " + arr[i].rating + " stars");
+    	}
+    }
+}
+
+function movieObject(name, stars, seen) {
+	return {
+		title: name,
+		rating: stars,
+		hasWatched: seen
+	};
+}
