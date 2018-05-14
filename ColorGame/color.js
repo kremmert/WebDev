@@ -1,5 +1,4 @@
 var size = 6;
-
 var colors;
 var winningColor;
 
@@ -8,54 +7,49 @@ var messageDisplay = document.querySelector("#message");
 var squares = document.querySelectorAll(".square");
 var resetButton = document.querySelector("#reset");
 var h1 = document.querySelector("h1");
-var easyBtn = document.querySelector("#easy");
-var hardBtn = document.querySelector("#hard");
+var modeButtons = document.querySelectorAll(".mode");
 
 start();
+for(var i = 0; i < modeButtons.length; i++) {
+	modeButtons[i].addEventListener("click",function() {
+		modeButtons[0].classList.remove("selected");
+		modeButtons[1].classList.remove("selected");
+		this.classList.add("selected");
+
+		this.textContent === "Hard" ? size = 6 : size = 3;
+		start();
+	}) 
+}
+
+for(var i = 0; i < squares.length; i++) {
+	squares[i].addEventListener("click", colorPicked);
+}
 
 resetButton.addEventListener("click", function() {
 	start();
-	h1.style.backgroundColor = "#232323";
-	resetButton.textContent = "New Colors";
+	h1.style.backgroundColor = "steelblue";
+	this.textContent = "New Colors";
+	messageDisplay.textContent = "";
 });
 
-easyBtn.addEventListener("click", function() {
-	hardBtn.classList.remove("selected");
-	easyBtn.classList.add("selected");
-	size = 3;
-	colors = generateColors(size);
-	winningColor = pickColor();
-	colorDisplay.textContent = winningColor;
+function start() {
+	selectWinningColor();
+
 	for(var i = 0; i < squares.length; i++) {
 		if(colors[i]) {
+			squares[i].style.display = "block";
 			squares[i].style.backgroundColor = colors[i];
 		}
 		else {
 			squares[i].style.display = "none";
 		}
 	}
-});
+}
 
-hardBtn.addEventListener("click", function() {
-	hardBtn.classList.add("selected");
-	easyBtn.classList.remove("selected");
-	size = 6;
-	start();
-});
-
-function start() {
+function selectWinningColor() {
 	colors = generateColors(size);
 	winningColor = pickColor();
 	colorDisplay.textContent = winningColor;
-
-	for(var i = 0; i < squares.length; i++) {
-		//add initial colors
-		squares[i].style.backgroundColor = colors[i];
-
-		//add click listeners
-		squares[i].addEventListener("click", colorPicked);
-		squares[i].style.display = "block";
-	}
 }
 
 function colorPicked() {
@@ -86,11 +80,9 @@ function pickColor() {
 
 function generateColors(num) {
 	var arr = [];
-
 	for(var i = 0; i < num; i++) {
 		arr.push(randomColor());
 	}
-
 	return arr;
 }
 
