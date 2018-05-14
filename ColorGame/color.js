@@ -8,6 +8,8 @@ var messageDisplay = document.querySelector("#message");
 var squares = document.querySelectorAll(".square");
 var resetButton = document.querySelector("#reset");
 var h1 = document.querySelector("h1");
+var easyBtn = document.querySelector("#easy");
+var hardBtn = document.querySelector("#hard");
 
 start();
 
@@ -15,6 +17,30 @@ resetButton.addEventListener("click", function() {
 	start();
 	h1.style.backgroundColor = "#232323";
 	resetButton.textContent = "New Colors";
+});
+
+easyBtn.addEventListener("click", function() {
+	hardBtn.classList.remove("selected");
+	easyBtn.classList.add("selected");
+	size = 3;
+	colors = generateColors(size);
+	winningColor = pickColor();
+	colorDisplay.textContent = winningColor;
+	for(var i = 0; i < squares.length; i++) {
+		if(colors[i]) {
+			squares[i].style.backgroundColor = colors[i];
+		}
+		else {
+			squares[i].style.display = "none";
+		}
+	}
+});
+
+hardBtn.addEventListener("click", function() {
+	hardBtn.classList.add("selected");
+	easyBtn.classList.remove("selected");
+	size = 6;
+	start();
 });
 
 function start() {
@@ -28,6 +54,7 @@ function start() {
 
 		//add click listeners
 		squares[i].addEventListener("click", colorPicked);
+		squares[i].style.display = "block";
 	}
 }
 
